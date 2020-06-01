@@ -9,11 +9,6 @@ public class Calculator {
         String[] numbersArray = numbers.split(",");
         List<Integer> negativeNumbers = new ArrayList<Integer>();
 
-        // if (numbersArray.length > 2) {
-        // throw new RuntimeException("Up to 2 numbers seperated by comma(,) are
-        // allowed.");
-        // }
-
         // Go through each number in our numbersArray and convert it from a String to an
         // integer
         for (String number : numbersArray) {
@@ -24,7 +19,7 @@ public class Calculator {
 
                 if (numberInt < 0) { // is it a negative number?
                     negativeNumbers.add(numberInt);
-                } else {
+                } else if (numberInt <= 1000) {
                     returnValue += numberInt;
                 }
             }
