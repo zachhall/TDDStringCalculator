@@ -23,4 +23,9 @@ public class CalculatorTest {
         Calculator.add("1,X");
     }
 
+    @Test
+    public final void whenEmptyStringIsUsedThenReturnValue0() {
+        Assert.assertEquals(0, Calculator.add(""));
+    }
+
 }
