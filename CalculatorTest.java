@@ -7,9 +7,14 @@ public class CalculatorTest {
 
     // Use this annotation( ) when you're expecting a RuntimeException, not any kind
     // of returned value
-    @Test(expected = RuntimeException.class)
-    public final void whenMoreThan2NumbersAreUsedThenAnExceptionIsThrown() {
-        Calculator.add("1,2,3");
+    // @Test(expected = RuntimeException.class)
+    // public final void whenMoreThan2NumbersAreUsedThenAnExceptionIsThrown() {
+    // Calculator.add("1,2,3");
+    // }
+
+    @Test
+    public final void whenAnyNumberOfNumbersIsUsedThenReturnValuesAreTheirSums() {
+        Assert.assertEquals(1 + 2 + 3 + 4 + 5 + 6 + 7, Calculator.add("1,2,3,4,5,6,7"));
     }
 
     @Test
