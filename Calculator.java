@@ -1,9 +1,14 @@
 package Calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Calculator {
-    public static final int add(final String numbers) {
+    public static int add(final String numbers) {
         int returnValue = 0;
         String[] numbersArray = numbers.split(",");
+        List<Integer> negativeNumbers = new ArrayList<Integer>();
+
         // if (numbersArray.length > 2) {
         // throw new RuntimeException("Up to 2 numbers seperated by comma(,) are
         // allowed.");
@@ -13,14 +18,25 @@ public class Calculator {
         // integer
         for (String number : numbersArray) {
             if (!number.isEmpty()) {
-                // Coverts number String to int, adds to returnValue
-                returnValue += Integer.parseInt(number);
+                int numberInt = Integer.parseInt(number);
                 // If its not possible to convert the item to an integer, parseInt will throw an
                 // exception
+
+                if (numberInt < 0) { // is it a negative number?
+                    negativeNumbers.add(numberInt);
+                } else {
+                    returnValue += numberInt;
+                }
             }
         }
-        return returnValue;
+        // Throw a RuntimeException if there are any items in my negativeNumbers List
+        if (negativeNumbers.size() > 0) {
+            throw new RuntimeException("Negatives are not allowed" + negativeNumbers.toString());
+        }
+
         // Returns 0 (default value) if no items in array
         // Returns sum of item(s) if 1 or 2 items exist in array
+        return returnValue;
+
     }
 }
